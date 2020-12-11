@@ -8,7 +8,8 @@ class AddUnconfirmedToDevise < ActiveRecord::Migration[6.0]
 
       ## Lockable
     t.integer  :failed_attempts, default: 5, null: false # Only if lock strategy is :failed_attempts
-    t.string   :unlock_token only if unlock strategy is :email or :both
+    t.string   :unlock_token if :email 
     t.datetime :locked_at
+	end 
   end
 end
